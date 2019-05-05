@@ -1,0 +1,919 @@
+******************************************************************************
+                  MSP430 Linker PC v16.9.7                     
+******************************************************************************
+>> Linked Sun Jun 17 14:38:38 2018
+
+OUTPUT FILE NAME:   <Alarm.out>
+ENTRY POINT SYMBOL: "_c_int00_noargs_noexit"  address: 0000dc7c
+
+
+MEMORY CONFIGURATION
+
+         name            origin    length      used     unused   attr    fill
+----------------------  --------  ---------  --------  --------  ----  --------
+  SFR                   00000000   00000010  00000000  00000010  RWIX
+  PERIPHERALS_8BIT      00000010   000000f0  00000000  000000f0  RWIX
+  PERIPHERALS_16BIT     00000100   00000100  00000000  00000100  RWIX
+  RAM                   00000200   00000200  000000ca  00000136  RWIX
+  INFOD                 00001000   00000040  00000000  00000040  RWIX
+  INFOC                 00001040   00000040  00000000  00000040  RWIX
+  INFOB                 00001080   00000040  00000000  00000040  RWIX
+  INFOA                 000010c0   00000040  00000000  00000040  RWIX
+  FLASH                 0000c000   00003fde  00001ef4  000020ea  RWIX
+  BSLSIGNATURE          0000ffde   00000002  00000002  00000000  RWIX  ffff 
+  INT00                 0000ffe0   00000002  00000002  00000000  RWIX
+  INT01                 0000ffe2   00000002  00000000  00000002  RWIX
+  INT02                 0000ffe4   00000002  00000002  00000000  RWIX
+  INT03                 0000ffe6   00000002  00000002  00000000  RWIX
+  INT04                 0000ffe8   00000002  00000000  00000002  RWIX
+  INT05                 0000ffea   00000002  00000002  00000000  RWIX
+  INT06                 0000ffec   00000002  00000002  00000000  RWIX
+  INT07                 0000ffee   00000002  00000002  00000000  RWIX
+  INT08                 0000fff0   00000002  00000002  00000000  RWIX
+  INT09                 0000fff2   00000002  00000002  00000000  RWIX
+  INT10                 0000fff4   00000002  00000002  00000000  RWIX
+  INT11                 0000fff6   00000002  00000002  00000000  RWIX
+  INT12                 0000fff8   00000002  00000002  00000000  RWIX
+  INT13                 0000fffa   00000002  00000002  00000000  RWIX
+  INT14                 0000fffc   00000002  00000002  00000000  RWIX
+  RESET                 0000fffe   00000002  00000002  00000000  RWIX
+
+
+SECTION ALLOCATION MAP
+
+ output                                  attributes/
+section   page    origin      length       input sections
+--------  ----  ----------  ----------   ----------------
+.data      0    00000200    00000068     UNINITIALIZED
+                  00000200    00000020     lcd.obj (.data:LcdScreen)
+                  00000220    0000001c     main.obj (.data)
+                  0000023c    00000010     button.obj (.data:key_code)
+                  0000024c    0000000c     lcd.obj (.data)
+                  00000258    00000008     button.obj (.data:keyMask)
+                  00000260    00000008     main.obj (.data:ledOutput)
+
+.bss       0    00000268    00000012     UNINITIALIZED
+                  00000268    00000008     (.common:dataread)
+                  00000270    00000008     (.common:datawrite)
+                  00000278    00000001     (.common:current_col)
+                  00000279    00000001     (.common:current_row)
+
+.stack     0    000003b0    00000050     UNINITIALIZED
+                  000003b0    00000002     rts430_eabi.lib : boot.obj (.stack)
+                  000003b2    0000004e     --HOLE--
+
+.text      0    0000c000    00001dee     
+                  0000c000    00000400     main.obj (.text:SetupTime)
+                  0000c400    00000318     main.obj (.text:DisplayTime)
+                  0000c718    00000158     lcd.obj (.text:lcdcmd)
+                  0000c870    000000f4     main.obj (.text:DisplayStopWatch)
+                  0000c964    000000ea     main.obj (.text:DisplayAlarm)
+                  0000ca4e    000000e2     lcd.obj (.text:configLCD)
+                  0000cb30    000000d6     main.obj (.text:DisplayTimer)
+                  0000cc06    000000cc     main.obj (.text:SetMinute)
+                  0000ccd2    000000cc     main.obj (.text:SetYear)
+                  0000cd9e    000000ca     main.obj (.text:SetHour)
+                  0000ce68    000000c6     main.obj (.text:SetDate)
+                  0000cf2e    000000c4     main.obj (.text:SetMonth)
+                  0000cff2    000000c2     main.obj (.text:SetDay)
+                  0000d0b4    000000c0     lcd.obj (.text:LcdPrintNumS)
+                  0000d174    0000007e     main.obj (.text:Timer)
+                  0000d1f2    0000007c     rts430_eabi.lib : copy_decompress_lzss.obj (.text:decompress:lzss:__TI_decompress_lzss)
+                  0000d26e    00000076     main.obj (.text:rtc_settime)
+                  0000d2e4    0000006e     rts430_eabi.lib : autoinit.obj (.text:_auto_init)
+                  0000d352    0000006c     main.obj (.text:SetMinuteAlarm)
+                  0000d3be    0000006c     main.obj (.text:SetMinuteTimer)
+                  0000d42a    0000006c     main.obj (.text:SetSecondTimer)
+                  0000d496    0000006a     main.obj (.text:SetHourAlarm)
+                  0000d500    0000006a     main.obj (.text:SetHourTimer)
+                  0000d56a    00000068     main.obj (.text:SetEnableAlarm)
+                  0000d5d2    00000062     main.obj (.text:read_ds1307)
+                  0000d634    00000060     main.obj (.text:StopWatch)
+                  0000d694    0000005a     rts430_eabi.lib : cpy_tbl.obj (.text:copy_in)
+                  0000d6ee    00000058     main.obj (.text:Alarm)
+                  0000d746    00000058     rts430_eabi.lib : div32u.obj (.text)
+                  0000d79e    00000056     I2C.obj (.text:I2C_Read)
+                  0000d7f4    0000004c     rts430_eabi.lib : lsr16.obj (.text)
+                  0000d840    0000004a     lcd.obj (.text:DisplayLcdScreenOld)
+                  0000d88a    00000048     main.obj (.text:main)
+                  0000d8d2    00000042     main.obj (.text:ResetSecond)
+                  0000d914    0000003e     I2C.obj (.text:I2C_Write)
+                  0000d952    00000036     lcd.obj (.text:lcd_print_char)
+                  0000d988    00000034     lcd.obj (.text:waitlcd)
+                  0000d9bc    00000032     I2C.obj (.text:I2C_Init)
+                  0000d9ee    00000030     main.obj (.text:TimeOutTimer)
+                  0000da1e    00000030     lcd.obj (.text:lcd_power_of)
+                  0000da4e    0000002c     rts430_eabi.lib : asr16.obj (.text)
+                  0000da7a    0000002c                     : div16s.obj (.text)
+                  0000daa6    0000002c                     : lsl16.obj (.text)
+                  0000dad2    0000002c     button.obj (.text:scan_key_button)
+                  0000dafe    00000028     I2C.obj (.text:Dec2BCD)
+                  0000db26    00000026     main.obj (.text:init_system)
+                  0000db4c    00000026     rts430_eabi.lib : mult32.obj (.text)
+                  0000db72    00000022     lcd.obj (.text:LcdClearS)
+                  0000db94    00000020     lcd.obj (.text:LcdPrintStringS)
+                  0000dbb4    0000001e     timer.obj (.text:configClocks)
+                  0000dbd2    0000001e     main.obj (.text:isButtonUp)
+                  0000dbf0    0000001e     lcd.obj (.text:lcd_print_charS)
+                  0000dc0e    0000001c     main.obj (.text:enableBlink)
+                  0000dc2a    0000001c     main.obj (.text:isButtonDown)
+                  0000dc46    0000001c     main.obj (.text:isButtonStart)
+                  0000dc62    0000001a     I2C.obj (.text:BCD2Dec)
+                  0000dc7c    0000001a     rts430_eabi.lib : boot_special.obj (.text:_c_int00_noargs_noexit)
+                  0000dc96    0000001a     button.obj (.text:configButtons)
+                  0000dcb0    0000001a     lcd.obj (.text:gotoXy)
+                  0000dcca    00000018     main.obj (.text:isButtonResetSecond)
+                  0000dce2    00000016     rts430_eabi.lib : div16u.obj (.text)
+                  0000dcf8    00000014     timer.obj (.text:configTimerA2)
+                  0000dd0c    00000014     rts430_eabi.lib : copy_zero_init.obj (.text:decompress:ZI:__TI_zero_init)
+                  0000dd20    00000014                     : mult16.obj (.text)
+                  0000dd34    00000012     main.obj (.text:ResetStopWatch)
+                  0000dd46    00000012     main.obj (.text:configLEDs)
+                  0000dd58    00000012     rts430_eabi.lib : copy_decompress_none.obj (.text:decompress:none:__TI_decompress_none)
+                  0000dd6a    00000012                     : memcpy.obj (.text:memcpy)
+                  0000dd7c    00000010     main.obj (.text:CloseOutput)
+                  0000dd8c    00000010     main.obj (.text:OpenOutput)
+                  0000dd9c    00000010     main.obj (.text:isButtonMode)
+                  0000ddac    00000010     rts430_eabi.lib : epilog.obj (.text)
+                  0000ddbc    0000000e     main.obj (.text:isButtonSet)
+                  0000ddca    0000000c     interrupt.obj (.text:Timer_A)
+                  0000ddd6    00000008     rts430_eabi.lib : isr_trap.obj (.text:_isr:__TI_ISR_TRAP)
+                  0000ddde    00000006                     : exit.obj (.text:abort)
+                  0000dde4    00000004                     : pre_init.obj (.text:_system_pre_init)
+                  0000dde8    00000004     interrupt.obj (.text:configInterrupts)
+                  0000ddec    00000002     rts430_eabi.lib : startup.obj (.text:_system_post_cinit)
+
+.binit     0    0000c000    00000000     
+
+.const     0    0000ddee    000000ca     
+                  0000ddee    000000ca     main.obj (.const:.string)
+
+.cinit     0    0000deb8    0000003c     
+                  0000deb8    0000002a     (.cinit..data.load) [load image, compression = lzss]
+                  0000dee2    00000006     (__TI_handler_table)
+                  0000dee8    00000004     (.cinit..bss.load) [load image, compression = zero_init]
+                  0000deec    00000008     (__TI_cinit_table)
+
+.init_array 
+*          0    0000c000    00000000     UNINITIALIZED
+
+TRAPINT    0    0000ffe0    00000002     
+                  0000ffe0    00000002     rts430_eabi.lib : int00.obj (.int00)
+
+PORT1      0    0000ffe4    00000002     
+                  0000ffe4    00000002     rts430_eabi.lib : int02.obj (.int02)
+
+PORT2      0    0000ffe6    00000002     
+                  0000ffe6    00000002     rts430_eabi.lib : int03.obj (.int03)
+
+$fill000   0    0000ffde    00000002     
+                  0000ffde    00000002     --HOLE-- [fill = ffff]
+
+ADC10      0    0000ffea    00000002     
+                  0000ffea    00000002     rts430_eabi.lib : int05.obj (.int05)
+
+USCIAB0TX 
+*          0    0000ffec    00000002     
+                  0000ffec    00000002     rts430_eabi.lib : int06.obj (.int06)
+
+USCIAB0RX 
+*          0    0000ffee    00000002     
+                  0000ffee    00000002     rts430_eabi.lib : int07.obj (.int07)
+
+TIMER0_A1 
+*          0    0000fff0    00000002     
+                  0000fff0    00000002     rts430_eabi.lib : int08.obj (.int08)
+
+TIMER0_A0 
+*          0    0000fff2    00000002     
+                  0000fff2    00000002     interrupt.obj (.int09)
+
+WDT        0    0000fff4    00000002     
+                  0000fff4    00000002     rts430_eabi.lib : int10.obj (.int10)
+
+COMPARATORA 
+*          0    0000fff6    00000002     
+                  0000fff6    00000002     rts430_eabi.lib : int11.obj (.int11)
+
+TIMER1_A1 
+*          0    0000fff8    00000002     
+                  0000fff8    00000002     rts430_eabi.lib : int12.obj (.int12)
+
+TIMER1_A0 
+*          0    0000fffa    00000002     
+                  0000fffa    00000002     rts430_eabi.lib : int13.obj (.int13)
+
+NMI        0    0000fffc    00000002     
+                  0000fffc    00000002     rts430_eabi.lib : int14.obj (.int14)
+
+.reset     0    0000fffe    00000002     
+                  0000fffe    00000002     rts430_eabi.lib : boot.obj (.reset)
+
+MODULE SUMMARY
+
+       Module                     code   ro data   rw data
+       ------                     ----   -------   -------
+    .\
+       main.obj                   5332   202       52     
+    +--+--------------------------+------+---------+---------+
+       Total:                     5332   202       52     
+                                                          
+    .\button\
+       button.obj                 70     0         24     
+    +--+--------------------------+------+---------+---------+
+       Total:                     70     0         24     
+                                                          
+    .\i2c\
+       I2C.obj                    264    0         0      
+    +--+--------------------------+------+---------+---------+
+       Total:                     264    0         0      
+                                                          
+    .\interrupt\
+       interrupt.obj              16     2         0      
+    +--+--------------------------+------+---------+---------+
+       Total:                     16     2         0      
+                                                          
+    .\lcd\
+       lcd.obj                    1112   0         46     
+    +--+--------------------------+------+---------+---------+
+       Total:                     1112   0         46     
+                                                          
+    .\timer\
+       timer.obj                  50     0         0      
+    +--+--------------------------+------+---------+---------+
+       Total:                     50     0         0      
+                                                          
+    C:\ti\ccsv7\tools\compiler\ti-cgt-msp430_16.9.7.LTS\lib\rts430_eabi.lib
+       copy_decompress_lzss.obj   124    0         0      
+       autoinit.obj               110    0         0      
+       cpy_tbl.obj                90     0         0      
+       div32u.obj                 88     0         0      
+       lsr16.obj                  76     0         0      
+       asr16.obj                  44     0         0      
+       div16s.obj                 44     0         0      
+       lsl16.obj                  44     0         0      
+       mult32.obj                 38     0         0      
+       boot_special.obj           26     0         0      
+       div16u.obj                 22     0         0      
+       copy_zero_init.obj         20     0         0      
+       mult16.obj                 20     0         0      
+       copy_decompress_none.obj   18     0         0      
+       memcpy.obj                 18     0         0      
+       epilog.obj                 16     0         0      
+       isr_trap.obj               8      0         0      
+       exit.obj                   6      0         0      
+       pre_init.obj               4      0         0      
+       boot.obj                   0      2         0      
+       int00.obj                  0      2         0      
+       int02.obj                  0      2         0      
+       int03.obj                  0      2         0      
+       int05.obj                  0      2         0      
+       int06.obj                  0      2         0      
+       int07.obj                  0      2         0      
+       int08.obj                  0      2         0      
+       int10.obj                  0      2         0      
+       int11.obj                  0      2         0      
+       int12.obj                  0      2         0      
+       int13.obj                  0      2         0      
+       int14.obj                  0      2         0      
+       startup.obj                2      0         0      
+    +--+--------------------------+------+---------+---------+
+       Total:                     818    26        0      
+                                                          
+       Stack:                     0      0         80     
+       Linker Generated:          0      60        0      
+    +--+--------------------------+------+---------+---------+
+       Grand Total:               7662   290       202    
+
+
+LINKER GENERATED COPY TABLES
+
+__TI_cinit_table @ 0000deec records: 2, size/record: 4, table size: 8
+	.data: load addr=0000deb8, load size=0000002a bytes, run addr=00000200, run size=00000068 bytes, compression=lzss
+	.bss: load addr=0000dee8, load size=00000004 bytes, run addr=00000268, run size=00000012 bytes, compression=zero_init
+
+
+LINKER GENERATED HANDLER TABLE
+
+__TI_handler_table @ 0000dee2 records: 3, size/record: 2, table size: 6
+	index: 0, handler: __TI_zero_init
+	index: 1, handler: __TI_decompress_lzss
+	index: 2, handler: __TI_decompress_none
+
+
+GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name 
+
+address   name                    
+-------   ----                    
+0000004a  ADC10AE0                
+000001b0  ADC10CTL0               
+000001b2  ADC10CTL1               
+00000048  ADC10DTC0               
+00000049  ADC10DTC1               
+000001b4  ADC10MEM                
+000001bc  ADC10SA                 
+0000d6ee  Alarm                   
+0000dc62  BCD2Dec                 
+00000057  BCSCTL1                 
+00000058  BCSCTL2                 
+00000053  BCSCTL3                 
+0000ddde  C$$EXIT                 
+00000059  CACTL1                  
+0000005a  CACTL2                  
+000010fb  CALBC1_12MHZ            
+000010f9  CALBC1_16MHZ            
+000010ff  CALBC1_1MHZ             
+000010fd  CALBC1_8MHZ             
+000010fa  CALDCO_12MHZ            
+000010f8  CALDCO_16MHZ            
+000010fe  CALDCO_1MHZ             
+000010fc  CALDCO_8MHZ             
+0000005b  CAPD                    
+0000dd7c  CloseOutput             
+00000056  DCOCTL                  
+0000dafe  Dec2BCD                 
+0000c964  DisplayAlarm            
+0000d840  DisplayLcdScreenOld     
+0000c870  DisplayStopWatch        
+0000c400  DisplayTime             
+0000cb30  DisplayTimer            
+00000128  FCTL1                   
+0000012a  FCTL2                   
+0000012c  FCTL3                   
+0000d9bc  I2C_Init                
+0000d79e  I2C_Read                
+0000d914  I2C_Write               
+00000000  IE1                     
+00000001  IE2                     
+00000002  IFG1                    
+00000003  IFG2                    
+0000db72  LcdClearS               
+0000d0b4  LcdPrintNumS            
+0000db94  LcdPrintStringS         
+00000200  LcdScreen               
+0000dd8c  OpenOutput              
+00000022  P1DIR                   
+00000025  P1IE                    
+00000024  P1IES                   
+00000023  P1IFG                   
+00000020  P1IN                    
+00000021  P1OUT                   
+00000027  P1REN                   
+00000026  P1SEL                   
+00000041  P1SEL2                  
+00000252  P1_dir                  
+00000256  P1_in                   
+00000254  P1_out                  
+0000002a  P2DIR                   
+0000002d  P2IE                    
+0000002c  P2IES                   
+0000002b  P2IFG                   
+00000028  P2IN                    
+00000029  P2OUT                   
+0000002f  P2REN                   
+0000002e  P2SEL                   
+00000042  P2SEL2                  
+0000024c  P2_dir                  
+00000250  P2_in                   
+0000024e  P2_out                  
+0000001a  P3DIR                   
+00000018  P3IN                    
+00000019  P3OUT                   
+00000010  P3REN                   
+0000001b  P3SEL                   
+00000043  P3SEL2                  
+0000d8d2  ResetSecond             
+0000dd34  ResetStopWatch          
+0000ce68  SetDate                 
+0000cff2  SetDay                  
+0000d56a  SetEnableAlarm          
+0000cd9e  SetHour                 
+0000d496  SetHourAlarm            
+0000d500  SetHourTimer            
+0000cc06  SetMinute               
+0000d352  SetMinuteAlarm          
+0000d3be  SetMinuteTimer          
+0000cf2e  SetMonth                
+0000d42a  SetSecondTimer          
+0000ccd2  SetYear                 
+0000c000  SetupTime               
+0000d634  StopWatch               
+00000172  TA0CCR0                 
+00000174  TA0CCR1                 
+00000176  TA0CCR2                 
+00000162  TA0CCTL0                
+00000164  TA0CCTL1                
+00000166  TA0CCTL2                
+00000160  TA0CTL                  
+0000012e  TA0IV                   
+00000170  TA0R                    
+00000192  TA1CCR0                 
+00000194  TA1CCR1                 
+00000196  TA1CCR2                 
+00000182  TA1CCTL0                
+00000184  TA1CCTL1                
+00000186  TA1CCTL2                
+00000180  TA1CTL                  
+0000011e  TA1IV                   
+00000190  TA1R                    
+000010db  TLV_ADC10_1_LEN         
+000010da  TLV_ADC10_1_TAG         
+000010c0  TLV_CHECKSUM            
+000010f7  TLV_DCO_30_LEN          
+000010f6  TLV_DCO_30_TAG          
+0000d9ee  TimeOutTimer            
+0000d174  Timer                   
+0000ddca  Timer_A                 
+0000005d  UCA0ABCTL               
+00000062  UCA0BR0                 
+00000063  UCA0BR1                 
+00000060  UCA0CTL0                
+00000061  UCA0CTL1                
+0000005f  UCA0IRRCTL              
+0000005e  UCA0IRTCTL              
+00000064  UCA0MCTL                
+00000066  UCA0RXBUF               
+00000065  UCA0STAT                
+00000067  UCA0TXBUF               
+0000006a  UCB0BR0                 
+0000006b  UCB0BR1                 
+00000068  UCB0CTL0                
+00000069  UCB0CTL1                
+0000006c  UCB0I2CIE               
+00000118  UCB0I2COA               
+0000011a  UCB0I2CSA               
+0000006e  UCB0RXBUF               
+0000006d  UCB0STAT                
+0000006f  UCB0TXBUF               
+00000120  WDTCTL                  
+00000400  __STACK_END             
+00000050  __STACK_SIZE            
+UNDEFED   __TI_BINIT_Base         
+UNDEFED   __TI_BINIT_Limit        
+0000deec  __TI_CINIT_Base         
+0000def4  __TI_CINIT_Limit        
+0000dee2  __TI_Handler_Table_Base 
+0000dee8  __TI_Handler_Table_Limit
+UNDEFED   __TI_INITARRAY_Base     
+UNDEFED   __TI_INITARRAY_Limit    
+0000ddd6  __TI_ISR_TRAP           
+0000d1f2  __TI_decompress_lzss    
+0000dd58  __TI_decompress_none    
+0000ffe0  __TI_int00              
+0000ffe4  __TI_int02              
+0000ffe6  __TI_int03              
+0000ffea  __TI_int05              
+0000ffec  __TI_int06              
+0000ffee  __TI_int07              
+0000fff0  __TI_int08              
+0000fff2  __TI_int09              
+0000fff4  __TI_int10              
+0000fff6  __TI_int11              
+0000fff8  __TI_int12              
+0000fffa  __TI_int13              
+0000fffc  __TI_int14              
+ffffffff  __TI_pprof_out_hndl     
+ffffffff  __TI_prof_data_size     
+ffffffff  __TI_prof_data_start    
+0000dd0c  __TI_zero_init          
+ffffffff  __c_args__              
+0000da7a  __mspabi_divi           
+0000dce2  __mspabi_divu           
+0000d746  __mspabi_divul          
+0000ddb8  __mspabi_func_epilog_1  
+0000ddb6  __mspabi_func_epilog_2  
+0000ddb4  __mspabi_func_epilog_3  
+0000ddb2  __mspabi_func_epilog_4  
+0000ddb0  __mspabi_func_epilog_5  
+0000ddae  __mspabi_func_epilog_6  
+0000ddac  __mspabi_func_epilog_7  
+0000dd20  __mspabi_mpyi           
+0000dd20  __mspabi_mpyi_sw        
+0000db4c  __mspabi_mpyl           
+0000db4c  __mspabi_mpyl_sw        
+0000da7a  __mspabi_remi           
+0000dce2  __mspabi_remu           
+0000d746  __mspabi_remul          
+0000daa6  __mspabi_slli           
+0000dace  __mspabi_slli_1         
+0000dabc  __mspabi_slli_10        
+0000daba  __mspabi_slli_11        
+0000dab8  __mspabi_slli_12        
+0000dab6  __mspabi_slli_13        
+0000dab4  __mspabi_slli_14        
+0000dab2  __mspabi_slli_15        
+0000dacc  __mspabi_slli_2         
+0000daca  __mspabi_slli_3         
+0000dac8  __mspabi_slli_4         
+0000dac6  __mspabi_slli_5         
+0000dac4  __mspabi_slli_6         
+0000dac2  __mspabi_slli_7         
+0000dac0  __mspabi_slli_8         
+0000dabe  __mspabi_slli_9         
+0000da4e  __mspabi_srai           
+0000da76  __mspabi_srai_1         
+0000da64  __mspabi_srai_10        
+0000da62  __mspabi_srai_11        
+0000da60  __mspabi_srai_12        
+0000da5e  __mspabi_srai_13        
+0000da5c  __mspabi_srai_14        
+0000da5a  __mspabi_srai_15        
+0000da74  __mspabi_srai_2         
+0000da72  __mspabi_srai_3         
+0000da70  __mspabi_srai_4         
+0000da6e  __mspabi_srai_5         
+0000da6c  __mspabi_srai_6         
+0000da6a  __mspabi_srai_7         
+0000da68  __mspabi_srai_8         
+0000da66  __mspabi_srai_9         
+0000d7f4  __mspabi_srli           
+0000d83a  __mspabi_srli_1         
+0000d816  __mspabi_srli_10        
+0000d812  __mspabi_srli_11        
+0000d80e  __mspabi_srli_12        
+0000d80a  __mspabi_srli_13        
+0000d806  __mspabi_srli_14        
+0000d802  __mspabi_srli_15        
+0000d836  __mspabi_srli_2         
+0000d832  __mspabi_srli_3         
+0000d82e  __mspabi_srli_4         
+0000d82a  __mspabi_srli_5         
+0000d826  __mspabi_srli_6         
+0000d822  __mspabi_srli_7         
+0000d81e  __mspabi_srli_8         
+0000d81a  __mspabi_srli_9         
+0000d2e4  _auto_init              
+0000dc7c  _c_int00_noargs_noexit  
+0000fffe  _reset_vector           
+000003b0  _stack                  
+0000ddec  _system_post_cinit      
+0000dde4  _system_pre_init        
+0000ddde  abort                   
+0000dc96  configButtons           
+0000dbb4  configClocks            
+0000dde8  configInterrupts        
+0000ca4e  configLCD               
+0000dd46  configLEDs              
+0000dcf8  configTimerA2           
+0000d694  copy_in                 
+00000221  count                   
+00000278  current_col             
+00000279  current_row             
+00000268  dataread                
+00000270  datawrite               
+00000236  date                    
+00000235  day                     
+00000225  enableAlarm             
+0000dc0e  enableBlink             
+00000231  enableSW                
+0000022c  enableTimer             
+00000228  flagAlarm               
+00000220  flag_TimerA             
+0000dcb0  gotoXy                  
+00000234  hour                    
+00000226  hourAlarm               
+0000022d  hourSW                  
+00000229  hourTimer               
+0000db26  init_system             
+0000dc2a  isButtonDown            
+0000dd9c  isButtonMode            
+0000dcca  isButtonResetSecond     
+0000ddbc  isButtonSet             
+0000dc46  isButtonStart           
+0000dbd2  isButtonUp              
+00000258  keyMask                 
+0000023c  key_code                
+0000da1e  lcd_power_of            
+0000d952  lcd_print_char          
+0000dbf0  lcd_print_charS         
+0000c718  lcdcmd                  
+00000260  ledOutput               
+0000d88a  main                    
+0000dd6a  memcpy                  
+00000233  min                     
+00000227  minAlarm                
+0000022e  minSW                   
+0000022a  minTimer                
+00000237  month                   
+00000230  msecSW                  
+0000d5d2  read_ds1307             
+0000d26e  rtc_settime             
+0000dad2  scan_key_button         
+00000232  sec                     
+0000022f  secSW                   
+0000022b  secTimer                
+00000223  statusSetupTime         
+00000222  timeBlink               
+00000224  timeOut                 
+0000d988  waitlcd                 
+00000238  year                    
+
+
+GLOBAL SYMBOLS: SORTED BY Symbol Address 
+
+address   name                    
+-------   ----                    
+00000000  IE1                     
+00000001  IE2                     
+00000002  IFG1                    
+00000003  IFG2                    
+00000010  P3REN                   
+00000018  P3IN                    
+00000019  P3OUT                   
+0000001a  P3DIR                   
+0000001b  P3SEL                   
+00000020  P1IN                    
+00000021  P1OUT                   
+00000022  P1DIR                   
+00000023  P1IFG                   
+00000024  P1IES                   
+00000025  P1IE                    
+00000026  P1SEL                   
+00000027  P1REN                   
+00000028  P2IN                    
+00000029  P2OUT                   
+0000002a  P2DIR                   
+0000002b  P2IFG                   
+0000002c  P2IES                   
+0000002d  P2IE                    
+0000002e  P2SEL                   
+0000002f  P2REN                   
+00000041  P1SEL2                  
+00000042  P2SEL2                  
+00000043  P3SEL2                  
+00000048  ADC10DTC0               
+00000049  ADC10DTC1               
+0000004a  ADC10AE0                
+00000050  __STACK_SIZE            
+00000053  BCSCTL3                 
+00000056  DCOCTL                  
+00000057  BCSCTL1                 
+00000058  BCSCTL2                 
+00000059  CACTL1                  
+0000005a  CACTL2                  
+0000005b  CAPD                    
+0000005d  UCA0ABCTL               
+0000005e  UCA0IRTCTL              
+0000005f  UCA0IRRCTL              
+00000060  UCA0CTL0                
+00000061  UCA0CTL1                
+00000062  UCA0BR0                 
+00000063  UCA0BR1                 
+00000064  UCA0MCTL                
+00000065  UCA0STAT                
+00000066  UCA0RXBUF               
+00000067  UCA0TXBUF               
+00000068  UCB0CTL0                
+00000069  UCB0CTL1                
+0000006a  UCB0BR0                 
+0000006b  UCB0BR1                 
+0000006c  UCB0I2CIE               
+0000006d  UCB0STAT                
+0000006e  UCB0RXBUF               
+0000006f  UCB0TXBUF               
+00000118  UCB0I2COA               
+0000011a  UCB0I2CSA               
+0000011e  TA1IV                   
+00000120  WDTCTL                  
+00000128  FCTL1                   
+0000012a  FCTL2                   
+0000012c  FCTL3                   
+0000012e  TA0IV                   
+00000160  TA0CTL                  
+00000162  TA0CCTL0                
+00000164  TA0CCTL1                
+00000166  TA0CCTL2                
+00000170  TA0R                    
+00000172  TA0CCR0                 
+00000174  TA0CCR1                 
+00000176  TA0CCR2                 
+00000180  TA1CTL                  
+00000182  TA1CCTL0                
+00000184  TA1CCTL1                
+00000186  TA1CCTL2                
+00000190  TA1R                    
+00000192  TA1CCR0                 
+00000194  TA1CCR1                 
+00000196  TA1CCR2                 
+000001b0  ADC10CTL0               
+000001b2  ADC10CTL1               
+000001b4  ADC10MEM                
+000001bc  ADC10SA                 
+00000200  LcdScreen               
+00000220  flag_TimerA             
+00000221  count                   
+00000222  timeBlink               
+00000223  statusSetupTime         
+00000224  timeOut                 
+00000225  enableAlarm             
+00000226  hourAlarm               
+00000227  minAlarm                
+00000228  flagAlarm               
+00000229  hourTimer               
+0000022a  minTimer                
+0000022b  secTimer                
+0000022c  enableTimer             
+0000022d  hourSW                  
+0000022e  minSW                   
+0000022f  secSW                   
+00000230  msecSW                  
+00000231  enableSW                
+00000232  sec                     
+00000233  min                     
+00000234  hour                    
+00000235  day                     
+00000236  date                    
+00000237  month                   
+00000238  year                    
+0000023c  key_code                
+0000024c  P2_dir                  
+0000024e  P2_out                  
+00000250  P2_in                   
+00000252  P1_dir                  
+00000254  P1_out                  
+00000256  P1_in                   
+00000258  keyMask                 
+00000260  ledOutput               
+00000268  dataread                
+00000270  datawrite               
+00000278  current_col             
+00000279  current_row             
+000003b0  _stack                  
+00000400  __STACK_END             
+000010c0  TLV_CHECKSUM            
+000010da  TLV_ADC10_1_TAG         
+000010db  TLV_ADC10_1_LEN         
+000010f6  TLV_DCO_30_TAG          
+000010f7  TLV_DCO_30_LEN          
+000010f8  CALDCO_16MHZ            
+000010f9  CALBC1_16MHZ            
+000010fa  CALDCO_12MHZ            
+000010fb  CALBC1_12MHZ            
+000010fc  CALDCO_8MHZ             
+000010fd  CALBC1_8MHZ             
+000010fe  CALDCO_1MHZ             
+000010ff  CALBC1_1MHZ             
+0000c000  SetupTime               
+0000c400  DisplayTime             
+0000c718  lcdcmd                  
+0000c870  DisplayStopWatch        
+0000c964  DisplayAlarm            
+0000ca4e  configLCD               
+0000cb30  DisplayTimer            
+0000cc06  SetMinute               
+0000ccd2  SetYear                 
+0000cd9e  SetHour                 
+0000ce68  SetDate                 
+0000cf2e  SetMonth                
+0000cff2  SetDay                  
+0000d0b4  LcdPrintNumS            
+0000d174  Timer                   
+0000d1f2  __TI_decompress_lzss    
+0000d26e  rtc_settime             
+0000d2e4  _auto_init              
+0000d352  SetMinuteAlarm          
+0000d3be  SetMinuteTimer          
+0000d42a  SetSecondTimer          
+0000d496  SetHourAlarm            
+0000d500  SetHourTimer            
+0000d56a  SetEnableAlarm          
+0000d5d2  read_ds1307             
+0000d634  StopWatch               
+0000d694  copy_in                 
+0000d6ee  Alarm                   
+0000d746  __mspabi_divul          
+0000d746  __mspabi_remul          
+0000d79e  I2C_Read                
+0000d7f4  __mspabi_srli           
+0000d802  __mspabi_srli_15        
+0000d806  __mspabi_srli_14        
+0000d80a  __mspabi_srli_13        
+0000d80e  __mspabi_srli_12        
+0000d812  __mspabi_srli_11        
+0000d816  __mspabi_srli_10        
+0000d81a  __mspabi_srli_9         
+0000d81e  __mspabi_srli_8         
+0000d822  __mspabi_srli_7         
+0000d826  __mspabi_srli_6         
+0000d82a  __mspabi_srli_5         
+0000d82e  __mspabi_srli_4         
+0000d832  __mspabi_srli_3         
+0000d836  __mspabi_srli_2         
+0000d83a  __mspabi_srli_1         
+0000d840  DisplayLcdScreenOld     
+0000d88a  main                    
+0000d8d2  ResetSecond             
+0000d914  I2C_Write               
+0000d952  lcd_print_char          
+0000d988  waitlcd                 
+0000d9bc  I2C_Init                
+0000d9ee  TimeOutTimer            
+0000da1e  lcd_power_of            
+0000da4e  __mspabi_srai           
+0000da5a  __mspabi_srai_15        
+0000da5c  __mspabi_srai_14        
+0000da5e  __mspabi_srai_13        
+0000da60  __mspabi_srai_12        
+0000da62  __mspabi_srai_11        
+0000da64  __mspabi_srai_10        
+0000da66  __mspabi_srai_9         
+0000da68  __mspabi_srai_8         
+0000da6a  __mspabi_srai_7         
+0000da6c  __mspabi_srai_6         
+0000da6e  __mspabi_srai_5         
+0000da70  __mspabi_srai_4         
+0000da72  __mspabi_srai_3         
+0000da74  __mspabi_srai_2         
+0000da76  __mspabi_srai_1         
+0000da7a  __mspabi_divi           
+0000da7a  __mspabi_remi           
+0000daa6  __mspabi_slli           
+0000dab2  __mspabi_slli_15        
+0000dab4  __mspabi_slli_14        
+0000dab6  __mspabi_slli_13        
+0000dab8  __mspabi_slli_12        
+0000daba  __mspabi_slli_11        
+0000dabc  __mspabi_slli_10        
+0000dabe  __mspabi_slli_9         
+0000dac0  __mspabi_slli_8         
+0000dac2  __mspabi_slli_7         
+0000dac4  __mspabi_slli_6         
+0000dac6  __mspabi_slli_5         
+0000dac8  __mspabi_slli_4         
+0000daca  __mspabi_slli_3         
+0000dacc  __mspabi_slli_2         
+0000dace  __mspabi_slli_1         
+0000dad2  scan_key_button         
+0000dafe  Dec2BCD                 
+0000db26  init_system             
+0000db4c  __mspabi_mpyl           
+0000db4c  __mspabi_mpyl_sw        
+0000db72  LcdClearS               
+0000db94  LcdPrintStringS         
+0000dbb4  configClocks            
+0000dbd2  isButtonUp              
+0000dbf0  lcd_print_charS         
+0000dc0e  enableBlink             
+0000dc2a  isButtonDown            
+0000dc46  isButtonStart           
+0000dc62  BCD2Dec                 
+0000dc7c  _c_int00_noargs_noexit  
+0000dc96  configButtons           
+0000dcb0  gotoXy                  
+0000dcca  isButtonResetSecond     
+0000dce2  __mspabi_divu           
+0000dce2  __mspabi_remu           
+0000dcf8  configTimerA2           
+0000dd0c  __TI_zero_init          
+0000dd20  __mspabi_mpyi           
+0000dd20  __mspabi_mpyi_sw        
+0000dd34  ResetStopWatch          
+0000dd46  configLEDs              
+0000dd58  __TI_decompress_none    
+0000dd6a  memcpy                  
+0000dd7c  CloseOutput             
+0000dd8c  OpenOutput              
+0000dd9c  isButtonMode            
+0000ddac  __mspabi_func_epilog_7  
+0000ddae  __mspabi_func_epilog_6  
+0000ddb0  __mspabi_func_epilog_5  
+0000ddb2  __mspabi_func_epilog_4  
+0000ddb4  __mspabi_func_epilog_3  
+0000ddb6  __mspabi_func_epilog_2  
+0000ddb8  __mspabi_func_epilog_1  
+0000ddbc  isButtonSet             
+0000ddca  Timer_A                 
+0000ddd6  __TI_ISR_TRAP           
+0000ddde  C$$EXIT                 
+0000ddde  abort                   
+0000dde4  _system_pre_init        
+0000dde8  configInterrupts        
+0000ddec  _system_post_cinit      
+0000dee2  __TI_Handler_Table_Base 
+0000dee8  __TI_Handler_Table_Limit
+0000deec  __TI_CINIT_Base         
+0000def4  __TI_CINIT_Limit        
+0000ffe0  __TI_int00              
+0000ffe4  __TI_int02              
+0000ffe6  __TI_int03              
+0000ffea  __TI_int05              
+0000ffec  __TI_int06              
+0000ffee  __TI_int07              
+0000fff0  __TI_int08              
+0000fff2  __TI_int09              
+0000fff4  __TI_int10              
+0000fff6  __TI_int11              
+0000fff8  __TI_int12              
+0000fffa  __TI_int13              
+0000fffc  __TI_int14              
+0000fffe  _reset_vector           
+ffffffff  __TI_pprof_out_hndl     
+ffffffff  __TI_prof_data_size     
+ffffffff  __TI_prof_data_start    
+ffffffff  __c_args__              
+UNDEFED   __TI_BINIT_Base         
+UNDEFED   __TI_BINIT_Limit        
+UNDEFED   __TI_INITARRAY_Base     
+UNDEFED   __TI_INITARRAY_Limit    
+
+[302 symbols]
